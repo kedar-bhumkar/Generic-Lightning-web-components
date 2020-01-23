@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "c/accountView": [
+                "accountView/accountView.js"
+            ],
+            "c/caseView": [
+                "caseView/caseView.js"
+            ],
+            "c/contactView": [
+                "contactView/contactView.js"
+            ],
+            "c/genericBody": [
+                "genericBody/genericBody.js"
+            ],
+            "c/genericHeader": [
+                "genericHeader/genericHeader.js"
+            ],
+            "c/genericRecordView": [
+                "genericRecordView/genericRecordView.js"
+            ],
+            "c/genericRelatedList": [
+                "genericRelatedList/genericRelatedList.js"
+            ],
+            "c/genericVerticalNavigator": [
+                "genericVerticalNavigator/genericVerticalNavigator.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/uitemplateTwosectionparallel": [
+                "uitemplateTwosectionparallel/uitemplateTwosectionparallel.js"
+            ]
+        },
+        "experimentalDecorators": true
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

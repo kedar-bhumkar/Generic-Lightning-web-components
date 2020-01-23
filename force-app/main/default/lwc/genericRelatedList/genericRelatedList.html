@@ -1,0 +1,16 @@
+<template>
+    <p>Rendering data table</p>
+    <div style="height: 300px;">
+            <lightning-datatable
+                    key-field="id"
+                    data={listdata} 
+                    sortable="true" 
+                    columns={cols}
+                    show-row-number-column
+                    row-number-offset={rowOffset}
+                    hide-checkbox-column  
+                    onrowaction={handleRowAction}                  
+                    >
+            </lightning-datatable>
+    </div>              
+</template>

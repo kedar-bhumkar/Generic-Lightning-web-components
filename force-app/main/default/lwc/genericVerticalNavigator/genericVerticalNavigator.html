@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Links" icon-name="custom:custom50">
+        <div class="slds-p-left_x-small slds-grid slds-m-top--large slds-m-bottom--small">
+                <template if:true={links}>
+                        <ul  class="slds-list--vertical">
+                        <template for:each={links} for:item="theLink">
+                            <li  key={theLink.linkName}  class="slds-list__item">
+                                <a  data-pgname={theLink.linkName} onclick={handleSelect}>{theLink.linkName}</a>
+                            </li>                                 
+                        </template>
+                        </ul> 
+                    </template>         
+       </div>    
+    </lightning-card>   
+</template> 

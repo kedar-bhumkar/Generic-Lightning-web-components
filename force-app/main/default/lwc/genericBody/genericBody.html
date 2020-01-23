@@ -1,0 +1,14 @@
+<template>
+    <template if:true={recordView}>
+        <c-generic-record-view metadata={metadata}></c-generic-record-view>
+    </template>
+    <template if:true={account}>
+        <c-account-view payload={payload}></c-account-view>
+    </template>
+    <template if:true={thecase}>
+        <c-case-view payload={payload}></c-case-view>
+    </template> 
+    <template if:true={thecontact}>
+            <c-contact-view payload={payload}></c-contact-view>
+    </template>    
+</template>

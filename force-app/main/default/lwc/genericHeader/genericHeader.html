@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Header" icon-name="custom:custom63">
+        <div class="slds-p-left_x-small slds-grid slds-m-top--large slds-m-bottom--small">
+                <template if:true={labelValues}>
+                        <template for:each={labelValues} for:item="contact">
+                            <div key={contact.label} class="slds-col">
+                                    <p  class="slds-text-heading--label slds-truncate" >{contact.label}:</p>
+                                    <p class="slds-text-body--regular">{contact.value}</p>
+                            </div>
+                        </template>
+                    </template>         
+       </div>    
+    </lightning-card>
+</template>

@@ -1,0 +1,50 @@
+<template>
+  <template if:true={isView}>     
+    <lightning-record-view-form
+                    record-id={metadata.recordId}
+                    object-api-name={metadata.objectApi}>
+        <div class="slds-grid">                    
+            <template if:true={sections}>                  
+                <template for:each={sections} for:item="theSection">                    
+                    <div key={theSection.sectionName} class="slds-col slds-size_1-of-2">
+                        <b>{theSection.sectionName}</b>
+                        
+                        <template for:each={theSection.fields} for:item="f">
+                              
+                                <lightning-output-field key={f.api} field-name={f.api}>
+                                </lightning-output-field>
+                                
+                        </template>
+
+                    </div>
+                    
+                </template>    
+            </template> 
+        </div>
+    </lightning-record-view-form>
+  </template>  
+  <template if:true={isEdit}>     
+    <lightning-record-edit-form
+                    record-id={metadata.recordId}
+                    object-api-name={metadata.objectApi}>
+        <div class="slds-grid">                    
+            <template if:true={sections}>                  
+                <template for:each={sections} for:item="theSection">                    
+                    <div key={theSection.sectionName} class="slds-col slds-size_1-of-2">
+                        <b>{theSection.sectionName}</b>
+                        
+                        <template for:each={theSection.fields} for:item="f">
+                              
+                                <lightning-input-field key={f.api} field-name={f.api}>
+                                </lightning-input-field>
+                                
+                        </template>
+
+                    </div>
+                    
+                </template>    
+            </template> 
+        </div>
+    </lightning-record-edit-form>
+  </template>  
+</template>

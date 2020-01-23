@@ -1,0 +1,11 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.sfdx": true
+  },
+  "eslint.nodePath": "c:\\Users\\kedar\\.vscode\\extensions\\salesforce.salesforcedx-vscode-lwc-47.15.0\\node_modules",
+  "salesforcedx-vscode-core.push-or-deploy-on-save.enabled": true,
+  "salesforcedx-vscode-lightning.showLightningExplorer": true,
+  "salesforcedx-vscode-apex.java.home": "C:\\Program Files\\Java\\jdk1.8.0_201"
+}
