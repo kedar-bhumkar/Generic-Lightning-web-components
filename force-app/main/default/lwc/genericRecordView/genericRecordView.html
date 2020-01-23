@@ -1,7 +1,10 @@
 <template>
     <lightning-card title="Generic Record Information" icon-name="custom:custom63">      
-        <template if:true={uxTemplateTwoSectionParallel}>    
+        <template if:true={uiTemplateTwoSectionParallel}>    
                     <c-uitemplate-Twosectionparallel sections={sections} metadata={metadata} mode={mode}></c-uitemplate-Twosectionparallel>
-        </template>    
+        </template> 
+        <template if:true={uiTemplateOneSectionSerial}>    
+                      <c-uitemplate-One-Section-Serial sections={sections} metadata={metadata} mode={mode}></c-uitemplate-One-Section-Serial>
+        </template>  
     </lightning-card>
 </template>

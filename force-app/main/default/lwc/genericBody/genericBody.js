@@ -16,7 +16,7 @@ export default class GenericBody extends LightningElement {
     connectedCallback() {
         console.log("Inside genericBody connectedCallback...");
         this.recordView = true;
-        this.metadata = {"objectApi": this.objectApiName, "recordId": this.recordId, "templateType": "2 section parallel"};
+        this.metadata = {"objectApi": this.objectApiName, "recordId": this.recordId};
         registerListener('linkSelected', this.handleLinkSelected, this);
     }
  

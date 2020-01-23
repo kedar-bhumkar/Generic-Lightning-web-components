@@ -7,12 +7,17 @@ public with sharing class GenericRecordViewController {
     {
         RecordMetadata theRecordMetadata = (RecordMetadata)JSON.deserialize(recordMetadataParam, RecordMetadata.class);
         System.debug('objectApi = ' + theRecordMetadata.objectApi + ' recordId = ' + theRecordMetadata.recordId + ' templateType=' + theRecordMetadata.templateType);
+        String templateType = getTemplateType(theRecordMetadata.objectApi);
         ILoader theLoader;
-        Type t;
-        if(theRecordMetadata.templateType == '2 section parallel'){
-               t = Type.forName('TwoSectionParallelLoader'); 
-               theLoader = (ILoader)t.newInstance();
+        if(templateType == '2 section parallel'){
+               theLoader = (ILoader)(Type.forName('TwoSectionParallelLoader').newInstance());
+        }else if(templateType == '1 section serial'){
+               theLoader = (ILoader)(Type.forName('OneSectionSerialLoader').newInstance());
         }
         return JSON.serialize(theLoader.load(theRecordMetadata));
     } 
+
+    public static String  getTemplateType(String objectApi){
+        return [Select Metadata__c, Type__c from UXTemplate__mdt where DeveloperName=:objectApi and isActive__c =true LIMIT 1][0].Type__c;
+    }
 }

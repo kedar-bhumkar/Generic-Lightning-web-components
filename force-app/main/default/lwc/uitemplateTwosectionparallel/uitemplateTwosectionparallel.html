@@ -1,50 +1,59 @@
 <template>
-  <template if:true={isView}>     
-    <lightning-record-view-form
-                    record-id={metadata.recordId}
-                    object-api-name={metadata.objectApi}>
-        <div class="slds-grid">                    
-            <template if:true={sections}>                  
-                <template for:each={sections} for:item="theSection">                    
-                    <div key={theSection.sectionName} class="slds-col slds-size_1-of-2">
-                        <b>{theSection.sectionName}</b>
-                        
-                        <template for:each={theSection.fields} for:item="f">
-                              
-                                <lightning-output-field key={f.api} field-name={f.api}>
-                                </lightning-output-field>
-                                
-                        </template>
-
-                    </div>
-                    
-                </template>    
-            </template> 
-        </div>
-    </lightning-record-view-form>
-  </template>  
-  <template if:true={isEdit}>     
     <lightning-record-edit-form
                     record-id={metadata.recordId}
-                    object-api-name={metadata.objectApi}>
-        <div class="slds-grid">                    
-            <template if:true={sections}>                  
-                <template for:each={sections} for:item="theSection">                    
-                    <div key={theSection.sectionName} class="slds-col slds-size_1-of-2">
-                        <b>{theSection.sectionName}</b>
-                        
-                        <template for:each={theSection.fields} for:item="f">
-                              
-                                <lightning-input-field key={f.api} field-name={f.api}>
-                                </lightning-input-field>
-                                
-                        </template>
+                    object-api-name={metadata.objectApi}
+                    onsubmit={handleSubmit}
+                    onsucess={handleSuccess}>
+            <lightning-messages></lightning-messages>
 
-                    </div>
-                    
-                </template>    
-            </template> 
-        </div>
-    </lightning-record-edit-form>
-  </template>  
+            <template if:true={sections}>     
+                <div class="slds-grid">                    
+                    <template for:each={sections} for:item="theSection">                    
+                        <div key={theSection.sectionName} class="slds-col slds-size_1-of-2">
+                            <b>::{theSection.sectionName}</b>
+                            
+                            <template for:each={theSection.fields} for:item="f">
+                                <template if:true={isView}>   
+                                    <lightning-output-field key={f.api} field-name={f.api}>
+                                    </lightning-output-field>
+                                </template>
+
+                                <template if:true={isEdit}>   
+                                    <lightning-input-field key={f.api} field-name={f.api}>
+                                    </lightning-input-field>
+                                    <!--lightning-input type={f.type} key={f.api} value={f.selectedVal} name={f.label}>
+
+                                    </lightning-input-->
+                                </template>    
+                            </template>
+                        </div>
+                    </template> 
+                </div>
+                <div class="slds-grid">     
+                        <div class="slds-col slds-size_1-of-1">
+                                <template if:true={isView}>   
+                                    <lightning-button
+                                    class="slds-m-top_small slds-align_absolute-center"
+                                    variant="brand"                        
+                                    name="edit"
+                                    label="Edit"
+                                    onclick={toggleButton}
+                                >
+                                    </lightning-button>
+                                </template>    
+                                <template if:true={isEdit}>   
+                                    <lightning-button
+                                    class="slds-m-top_small slds-align_absolute-center"
+                                    variant="brand"
+                                    type="submit"                       
+                                    name="Save"
+                                    label="Save"
+                               >
+                                    </lightning-button>
+                                </template>   
+                        </div>
+                </div>               
+            </template>     
+       
+    </lightning-record-edit-form>  
 </template>

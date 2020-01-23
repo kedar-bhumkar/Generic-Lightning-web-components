@@ -1,0 +1,24 @@
+<template>
+    <lightning-record-edit-form
+                    record-id={metadata.recordId}
+                    object-api-name={metadata.objectApi}
+                    onsubmit={handleSubmit}
+                    onsucess={handleSuccess}>
+            <lightning-messages></lightning-messages>
+            <b>One section serial template</b>
+            <template if:true={sections}>     
+                <div class="slds-grid">                    
+                    <template for:each={sections} for:item="f">                    
+                        <div key={f.api} class="slds-col slds-size_1-of-1">
+                            
+                                <template if:true={isView}>   
+                                    <lightning-output-field key={f.api} field-name={f.api}>
+                                    </lightning-output-field>
+                                </template>
+                         
+                        </div>
+                    </template>  
+                </div>
+            </template>     
+    </lightning-record-edit-form>  
+</template>

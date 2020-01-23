@@ -5,21 +5,7 @@ public with sharing class TwoSectionParallelLoader extends BaseLoader{
         
     }
 
-    public override void generatePayload(){
-        System.debug('Record = ' + theRecord);
-        FieldBean fBean;
-        for(String f: fieldBeanMap.keySet()){
-            fBean = fieldBeanMap.get(f); 
-            if(fBean.type =='checkbox'){
-                fBean.selectedVal = '' + (Boolean)theRecord.get(f);
-            }if(fBean.type =='address'){
-                fBean.selectedVal = '' + (System.Address)theRecord.get(f);
-            }else{
-                fBean.selectedVal = (String)theRecord.get(f);    
-            }
-            
-        }        
-    }
+    
 
     public override void extractFields(){
         fieldBeanMap = new Map<String, FieldBean>();

@@ -31,6 +31,9 @@
             ],
             "c/uitemplateTwosectionparallel": [
                 "uitemplateTwosectionparallel/uitemplateTwosectionparallel.js"
+            ],
+            "c/uitemplateOneSectionSerial": [
+                "uitemplateOneSectionSerial/uitemplateOneSectionSerial.js"
             ]
         },
         "experimentalDecorators": true

@@ -37,6 +37,9 @@ export default class ContactView extends LightningElement {
                     "rowActions": [{
                             "label": "View details",
                             "name": "View_details"
+                        },{
+                            "label": "Edit details",
+                            "name": "Edit_details"
                         },
                         {
                             "label": "Delete",

@@ -41,20 +41,23 @@ export default class GenericRelatedList extends NavigationMixin(LightningElement
         console.log("actionName ..."+ actionName);
         switch (actionName) {           
             case 'View_details':
-                this.viewDetails(row);
+                this.recordDetails(row, 'view');
                 break;
+            case 'Edit_details':
+                this.recordDetails(row, 'edit');
+                break;    
             default:
         }
     }
 
-     viewDetails(row) {
+    recordDetails(row, action) {
         console.log("row = " + JSON.stringify(row));
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
                 recordId: row.Id,
                 objectApiName: this.listmetadata.obj,
-                actionName: 'view'
+                actionName: action
             }
         });
     }

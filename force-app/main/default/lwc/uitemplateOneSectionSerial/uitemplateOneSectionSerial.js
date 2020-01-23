@@ -1,7 +1,7 @@
 import { LightningElement,api,track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-export default class UitemplateTwosectionparallel extends LightningElement {
+export default class UitemplateOneSectionSerial extends LightningElement {
     @api sections;
     @api metadata;
     @track mode ='view';
@@ -17,7 +17,7 @@ export default class UitemplateTwosectionparallel extends LightningElement {
             return true;
         }else{
             return false;
-        }
+        } 
     }
 
     get isEdit(){

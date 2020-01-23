@@ -10,7 +10,7 @@ public with sharing class GenericRelatedListController {
         for(ListMetaData.Afield f:listData.fields){
             query+= f.fieldName + ',';
         }
-        query = query.removeEnd(','); 
+        query = query.removeEnd(',');
 
         //append object
         query+= ' from ' + listData.obj;

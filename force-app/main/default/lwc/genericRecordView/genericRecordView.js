@@ -7,10 +7,11 @@ export default class GenericRecordView extends LightningElement {
     @api metadata;
     metadataParam;
     @track sections =[];
-    @track mode = 'edit';
+    @track mode = 'view';
 
     //template visibility vars
-    @track uxTemplateTwoSectionParallel;
+    @track uiTemplateTwoSectionParallel;
+    @track uiTemplateOneSectionSerial;
     //end
 
 
@@ -18,20 +19,26 @@ export default class GenericRecordView extends LightningElement {
     wiredList({ error, data }) {
         if (data) {
             console.log('Returned Data *** = ' + data); 
-            this.sections = JSON.parse(data);
-            this.checkTemplate();
+            const finalPayload = JSON.parse(data);
+            this.sections = finalPayload.theBeans;
+            this.checkTemplate(finalPayload.templateType);
         } else if (error) {
             // eslint-disable-next-line no-console
             console.log('error =' + JSON.stringify(error));
         }
     } 
 
-    checkTemplate(){
-        console.log('Checking template....');
-        if(this.metadata.templateType == '2 section parallel'){
-            this.uxTemplateTwoSectionParallel = true;
+    checkTemplate(templateType){
+        console.log('Checking template.... = ' + templateType);
+        if(templateType == '2 section parallel'){
+            this.uiTemplateTwoSectionParallel = true;
+            this.uiTemplateOneSectionSerial = false;
+        }else if(templateType == '1 section serial'){
+            this.uiTemplateOneSectionSerial = true;
+            this.uiTemplateTwoSectionParallel = false;
         }
         console.log('this.uxTemplateTwoSectionParallel = ' + this.uxTemplateTwoSectionParallel);
+        console.log('this.uiTemplateOneSectionSerial = ' + this.uiTemplateOneSectionSerial);
 
     }
 

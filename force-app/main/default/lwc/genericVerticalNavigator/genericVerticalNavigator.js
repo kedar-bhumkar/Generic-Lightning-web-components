@@ -15,7 +15,7 @@ export default class GenericVerticalNavigator extends LightningElement {
         var linkNames = Object.keys(menuObj);      
         console.log("linkNames =" + linkNames);  
         linkNames.map(m=>this.links.push({"linkName": m,"url":menuObj[m]}));
-        console.log("Links *** = " +  this.links);
+        console.log("Links = " +  this.links);
     }
 
     isJsonString() {
